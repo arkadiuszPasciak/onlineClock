@@ -1,0 +1,71 @@
+$btn: (
+  display: block,
+  padding: 15px 60px,
+  font: 400 16px/20px $zillaslab,
+  text-transform: uppercase,
+  transition: (background-color .3s ease, color .3s ease),
+  cursor: pointer,
+);
+
+$btn-primary: (
+  background: $cl-white,
+  color: $cl-black,
+);
+
+$btn-secondary: (
+  background: $cl-darkgrey,
+  color: $cl-white,
+);
+
+$btn-tertiary: (
+  background: $cl-darkgrey,
+  color: $cl-white,
+);
+
+$btn-primary-hover: (
+  background: $cl-lightred,
+  color: $cl-white,
+);
+
+$btn-secondary-hover: (
+  background: $cl-white,
+  color: $cl-black,
+);
+
+$btn-tertiary-hover: (
+  background: $cl-brown,
+  color: $cl-white,
+);
+
+$btn-quaternary-hover: (
+  background: $cl-black,
+  color: $cl-white,
+);
+
+@mixin btn($base_list, $altered_list: (), $deletion_list: ()) {
+  @if length($altered_list) != 0 {
+    @if length($base_list) == 0 {
+      @error "The base list is empty, there is no need to morph the list. Create a new one";
+    }
+    @each $property, $argument in $altered_list {
+      @if not map-has-key($base_list, $property) {
+        @error "The #{$property} property is not visible in the base list, there is no need to replace it. Delete the property from the list";
+      }
+      $base_list: map-remove($base_list, $property);
+    }
+    $base_list: map-merge($base_list, $altered_list);
+  }
+  @if length($deletion_list) != 0 {
+    @each $property in $deletion_list {
+      @if length($altered_list) != 0 {
+        @if not map-has-key($altered_list, $property) {
+          @error "The #{$property} property is visible in the altered list, there is no need to delete it. Delete the property from the list";
+        }
+      }
+      $base_list: map-remove($base_list, $property);
+    }
+  }
+  @each $property, $argument in $base_list {
+    #{$property}: $argument;
+  }
+}

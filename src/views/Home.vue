@@ -1,16 +1,17 @@
 <template>
   <div class="home">
-    <HelloWorld />
+    <div class="numbers">12345677890</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  }
 }
 </script>
+
+<style lang="scss" scoped>
+.numbers {
+  font: 400 20px/20px $digital;
+}
+</style>

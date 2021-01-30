@@ -1,2 +1,12 @@
-$zillaslab: 'Zilla Slab', sans-serif;
-$poppins: 'Poppins', sans-serif;
+@font-face {
+  font-family: 'Digital';
+  src: url('../assets/fonts/Digital.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('../assets/fonts/SourceSansPro.ttf') format('truetype');
+}
+
+$digital: 'Digital', sans-serif;
+$sourceSansPro: 'SourceSansPro', sans-serif; 

@@ -27,13 +27,15 @@ export default {
   background: $cl-dark-blue;
 }
 .container {
-  max-width: 80%;
   margin: 0 auto;
+  @include above(medium) {
+    max-width: 80%;
+  }
 }
 .content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 20px 10px;
 }
 </style>

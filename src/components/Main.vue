@@ -16,14 +16,21 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  max-width: 80%;
   margin: 0 auto;
+  @include above(medium) {
+    max-width: 80%;
+  }
 }
 .content {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 100px 0;
+  @include below(medium) {
+    padding: 50px 10px;
+  }
+  @include above(medium) {
+    padding: 100px 50px;
+  }
 }
 </style>

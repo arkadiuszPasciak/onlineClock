@@ -18,22 +18,22 @@ export default {
       {
         id: 1,
         name: 'is-countdown',
-        href: '/',
+        href: '/countdown',
       },
       {
         id: 2,
         name: 'is-stopwatch',
-        href: '/',
+        href: '/stopwatch',
       },
       {
         id: 3,
         name: 'is-alarm',
-        href: '/',
+        href: '/alarm',
       },
       {
         id: 4,
         name: 'is-clock',
-        href: '/',
+        href: '/clock',
       },
     ];
     return { nav };

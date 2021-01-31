@@ -1,11 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Alarm from '../views/Alarm.vue'
+import Clock from '../views/Clock.vue'
+import Countdown from '../views/Countdown.vue'
+import Stopwatch from '../views/Stopwatch.vue'
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/alarm',
+    name: 'Alarm',
+    component: Alarm
+  },
+  {
+    path: '/clock',
+    name: 'Clock',
+    component: Clock
+  },
+  {
+    path: '/countdown',
+    name: 'Countdown',
+    component: Countdown
+  },
+  {
+    path: '/stopwatch',
+    name: 'Stopwatch',
+    component: Stopwatch
   }
 ]
 

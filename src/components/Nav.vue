@@ -50,17 +50,21 @@ export default {
   width: 35px;
   height: 35px;
   margin: 0 10px;
+  background: $cl-white;
   &.is-stopwatch {
-    background: url('~@/assets/icons/stopwatch.svg') center center no-repeat;
+    mask: url('~@/assets/icons/stopwatch.svg');
   }
   &.is-alarm {
-    background: url('~@/assets/icons/alarm-clock.svg') center center no-repeat;
+    mask: url('~@/assets/icons/alarm-clock.svg');
   }
   &.is-countdown {
-    background: url('~@/assets/icons/countdown-timer.svg') center center no-repeat;
+    mask: url('~@/assets/icons/countdown-timer.svg');
   }
   &.is-clock {
-    background: url('~@/assets/icons/clock.svg') center center no-repeat;
+    mask: url('~@/assets/icons/clock.svg');
   }
+}
+.router-link-active {
+  background: $cl-green;
 }
 </style>

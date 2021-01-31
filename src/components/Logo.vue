@@ -1,5 +1,5 @@
 <template>
-  <router-link class="Logo" to="/">onlineClock</router-link>
+  <router-link class="Logo" to="/" />
 </template>
 
 <script>
@@ -10,7 +10,8 @@ export default {
 
 <style lang="scss" scoped>
 .Logo {
-  font: 400 22px/26px $sourceSansPro;
-  color: $cl-white;
+  width: 90px;
+  height: 45px;
+  background: url('~@/assets/icons/logo.png') center center no-repeat;
 }
 </style>

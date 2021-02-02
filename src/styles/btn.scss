@@ -1,10 +1,41 @@
 $btn: (
   display: block,
-  padding: 15px 60px,
-  font: 400 16px/20px $sourceSansPro,
   text-transform: uppercase,
+  color: $cl-white,
   transition: (background-color .3s ease, color .3s ease),
   cursor: pointer,
+);
+
+$btn-primary: (
+  background: $cl-green,
+);
+
+$btn-primary-hover: (
+  background: rgba($cl-green, .8),
+);
+
+$btn-secondary: (
+  background: $cl-red,
+);
+
+$btn-secondary-hover: (
+  background: rgba($cl-red, .8),
+);
+
+$btn-tertiary: (
+  background: $cl-dark-blue,
+);
+
+$btn-tertiary-hover: (
+  background: rgba($cl-dark-blue, .8),
+);
+
+$btn-quaternary: (
+  background: $cl-orange,
+);
+
+$btn-quaternary-hover: (
+  background: rgba($cl-orange, .8),
 );
 
 @mixin btn($base_list, $altered_list: (), $deletion_list: ()) {

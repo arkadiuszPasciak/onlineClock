@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'Time',
+  name: 'Button',
   props: ['name', 'modifier'],
 };
 </script>
@@ -13,6 +13,7 @@ export default {
 .Button {
   @include btn($btn);
   padding: 15px 60px;
+  margin: 10px;
   font: 500 16px/20px $sourceSansPro;
   letter-spacing: 1px;
   &.start {

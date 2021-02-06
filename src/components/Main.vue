@@ -25,7 +25,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
   @include below(medium) {
     padding: 50px 10px;
   }

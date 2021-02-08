@@ -10,16 +10,18 @@
     modifier="reset"
     @click="resetStopWatch"
   />
+  <RoundTable />
 </template>
 
 <script>
 import { ref } from 'vue';
-import Button from '@/components/Button.vue';
-import Time from '@/components/Time.vue';
+import Button from '@/components/Button';
+import RoundTable from '@/components/RoundTable';
+import Time from '@/components/Time';
 
 export default {
   name: 'StopWatch',
-  components: { Time, Button },
+  components: { Button, RoundTable, Time },
   setup() {
     let seconds = ref(0);
     let minutes = ref(0);

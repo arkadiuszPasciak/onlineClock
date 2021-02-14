@@ -18,7 +18,7 @@ export default {
 .container {
   margin: 0 auto;
   @include above(medium) {
-    max-width: 80%;
+    max-width: 50%;
   }
 }
 .content {

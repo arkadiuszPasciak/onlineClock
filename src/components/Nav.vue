@@ -17,13 +17,13 @@ export default {
     const nav = [
       {
         id: 1,
-        name: 'is-countdown',
-        href: '/countdown',
+        name: 'is-stopwatch',
+        href: '/stopwatch',
       },
       {
         id: 2,
-        name: 'is-stopwatch',
-        href: '/stopwatch',
+        name: 'is-countdown',
+        href: '/countdown',
       },
       {
         id: 3,

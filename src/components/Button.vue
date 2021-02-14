@@ -48,5 +48,9 @@ export default {
       }
     }
   }
+  &.disabled {
+    pointer-events: none;
+    opacity: .5;
+  }
 }
 </style>

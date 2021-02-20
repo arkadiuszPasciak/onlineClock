@@ -1,37 +1,65 @@
 <template>
   <div class="Time">
-    <span class="minutes" v-if="minutes < 10">0</span>
-    <span class="minutes is-colon">{{ minutes }}</span>
-    <span class="seconds" v-if="seconds < 10">0</span>
-    <span class="seconds">{{ seconds }}</span>
+    <div class="minutes" v-if="minutes !== false">
+      <span v-if="minutes < 10">0</span>
+      <span>{{ minutes }}</span>
+    </div>
+    <div class="seconds" v-if="seconds !== false">
+      <span v-if="seconds < 10">0</span>
+      <span>{{ seconds }}</span>
+    </div>
+    <div class="microseconds" v-if="microseconds !== false">
+      <span v-if="microseconds < 10">0</span>
+      <span >{{ microseconds }}</span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Time',
-  props: ['minutes', 'seconds'],
+  props: ['minutes', 'seconds', 'microseconds'],
 };
 </script>
 
 <style lang="scss" scoped>
 .Time {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
   flex-basis: 100%;
   color: $cl-white;
   @include below(medium) {
+    margin: 0 0 20px;
+  }
+  @include above(medium) {
+    margin: 0 0 40px;
+  }
+}
+.minutes,
+.seconds {
+  @include below(medium) {
     font: 500 100px/60px $digital;
-    margin: 0 0 50px;
   }
   @include above(medium) {
     font: 500 160px/120px $digital;
-    margin: 0 0 75px;
   }
 }
 .minutes {
-  &.is-colon {
-    &::after {
-      content: ':';
-    }
+  &::after {
+    content: ':';
+  }
+}
+.microseconds {
+  min-width: 100px;
+  &::before {
+    content: '.';
+  }
+  @include below(medium) {
+    font: 500 40px/80px $digital;
+  }
+  @include above(medium) {
+    font: 500 90px/130px $digital;
   }
 }
 </style>

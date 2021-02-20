@@ -9,16 +9,32 @@
       <div class="item" v-for="el in table" :key="el.id">
         <div class="number">{{ el.id + 1 }}</div>
         <div class="number">
-          <span class="minutes" v-if="el.roundMinute < 10">0</span>
-          <span class="minutes is-colon">{{ el.roundMinute }}</span>
-          <span class="seconds" v-if="el.roundSecond < 10">0</span>
-          <span class="seconds">{{ el.roundSecond }}</span>
+          <div class="minutes">
+            <span v-if="el.roundMinute < 10">0</span>
+            <span>{{ el.roundMinute }}</span>
+          </div>
+          <div class="seconds">
+            <span v-if="el.roundSecond < 10">0</span>
+            <span>{{ el.roundSecond }}</span>
+          </div>
+          <div class="microseconds">
+            <span v-if="el.roundMicroseconds < 10">0</span>
+            <span>{{ el.roundMicroseconds }}</span>
+          </div>
         </div>
         <div class="number">
-          <span class="minutes" v-if="el.totalMinute < 10">0</span>
-          <span class="minutes is-colon">{{ el.totalMinute }}</span>
-          <span class="seconds" v-if="el.totalSecond < 10">0</span>
-          <span class="seconds">{{ el.totalSecond }}</span>
+          <div class="minutes">
+            <span v-if="el.totalMinute < 10">0</span>
+            <span>{{ el.totalMinute }}</span>
+          </div>
+          <div class="seconds">
+            <span v-if="el.totalSecond < 10">0</span>
+            <span>{{ el.totalSecond }}</span>
+          </div>
+          <div class="microseconds">
+            <span v-if="el.totalMicroseconds < 10">0</span>
+            <span>{{ el.totalMicroseconds }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -41,7 +57,7 @@ export default {
 .item {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(3, 100px);
+  grid-template-columns: repeat(3, 145px);
   column-gap: 5px;
   row-gap: 10px;
   flex-basis: 100%;
@@ -62,11 +78,18 @@ export default {
 .content {
   font: 500 30px/30px $digital;
 }
+.number {
+  display: flex;
+  justify-content: center;
+}
 .minutes {
-  &.is-colon {
-    &::after {
-      content: ':';
-    }
+  &::after {
+    content: ':';
+  }
+}
+.microseconds {
+  &::before {
+    content: '.';
   }
 }
 </style>

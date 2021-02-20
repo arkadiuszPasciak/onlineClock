@@ -14,8 +14,8 @@
             <span>{{ el.roundMinute }}</span>
           </div>
           <div class="seconds">
-            <span v-if="el.roundSecond < 10">0</span>
-            <span>{{ el.roundSecond }}</span>
+            <span v-if="el.roundSeconds < 10">0</span>
+            <span>{{ el.roundSeconds }}</span>
           </div>
           <div class="microseconds">
             <span v-if="el.roundMicroseconds < 10">0</span>
@@ -24,12 +24,12 @@
         </div>
         <div class="number">
           <div class="minutes">
-            <span v-if="el.totalMinute < 10">0</span>
-            <span>{{ el.totalMinute }}</span>
+            <span v-if="el.totalMinutes < 10">0</span>
+            <span>{{ el.totalMinutes }}</span>
           </div>
           <div class="seconds">
-            <span v-if="el.totalSecond < 10">0</span>
-            <span>{{ el.totalSecond }}</span>
+            <span v-if="el.totalSeconds < 10">0</span>
+            <span>{{ el.totalSeconds }}</span>
           </div>
           <div class="microseconds">
             <span v-if="el.totalMicroseconds < 10">0</span>

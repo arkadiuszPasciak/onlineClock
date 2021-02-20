@@ -87,10 +87,10 @@ export default {
       const values = [
         {
           id: id.value++,
-          totalSecond: seconds.value,
-          totalMinute: minutes.value,
+          totalSeconds: seconds.value,
+          totalMinutes: minutes.value,
           totalMicroseconds: microseconds.value,
-          roundSecond: 0,
+          roundSeconds: 0,
           roundMinute: 0,
           roundMicroseconds: 0,
         }
@@ -99,28 +99,28 @@ export default {
       if (values[0].id > 0) {
         let id = values[0].id - 1;
 
-        if (minutes.value !== 0 && minutes.value !== values[0].totalMinute) {
-          values[0].roundMinute = minutes.value - roundTable.value[id].totalMinute
+        if (minutes.value !== 0 && minutes.value !== values[0].totalMinutes) {
+          values[0].roundMinute = minutes.value - roundTable.value[id].totalMinutes
         }
         if (microseconds.value !== 0 && roundTable.value[id].totalMicroseconds !== 0) {
-          let currentTotalMicroseconds = values[0].totalMicroseconds + (values[0].totalSecond * 100);
-          let previousTotalMicroseconds = roundTable.value[id].totalMicroseconds + (roundTable.value[id].totalSecond * 100);
+          let currentTotalMicroseconds = values[0].totalMicroseconds + (values[0].totalSeconds * 100);
+          let previousTotalMicroseconds = roundTable.value[id].totalMicroseconds + (roundTable.value[id].totalSeconds * 100);
           let sumMicroseconds = currentTotalMicroseconds - previousTotalMicroseconds;
           let restMicroseconds = parseInt(sumMicroseconds.toString().slice(-2));
           let restSeconds = parseInt(sumMicroseconds.toString().slice(0, -2));
 
           if (sumMicroseconds < 100) {
             values[0].roundMicroseconds = sumMicroseconds
-            values[0].roundSecond = seconds.value
+            values[0].roundSeconds = 0
           } else if (sumMicroseconds >= 100) {
             values[0].roundMicroseconds = restMicroseconds
-            values[0].roundSecond = restSeconds
+            values[0].roundSeconds = restSeconds
           }
         } else {
-          values[0].roundSecond = roundTable.value[id].totalSecond - seconds.value
+          values[0].roundSeconds = 0
         }
       } else if (values[0].id === 0) {
-        values[0].roundSecond = seconds.value
+        values[0].roundSeconds = seconds.value
         values[0].roundMicroseconds = microseconds.value
       }
 

@@ -14,8 +14,15 @@ export default {
   @include btn($btn);
   padding: 15px 60px;
   margin: 10px;
-  font: 500 16px/20px $sourceSansPro;
   letter-spacing: 1px;
+  @include below(medium) {
+    font: 500 12px/16px $sourceSansPro;
+    padding: 12px 40px;
+  }
+  @include above(medium) {
+    font: 500 16px/20px $sourceSansPro;
+    padding: 15px 60px;
+  }
   &.start {
     @include btn($btn-primary);
     &:hover {

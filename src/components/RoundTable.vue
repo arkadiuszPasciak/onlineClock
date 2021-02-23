@@ -52,15 +52,21 @@ export default {
 .Round {
   margin: 75px 0 0;
   color: $cl-white;
+  width: 100%;
 }
 .header,
 .item {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(3, 145px);
   column-gap: 5px;
   row-gap: 10px;
   flex-basis: 100%;
+  @include below(medium) {
+    grid-template-columns: 70px 120px 120px;
+  }
+  @include above(medium) {
+    grid-template-columns: repeat(3, 145px);
+  }
 }
 .header {
   margin: 0 0 20px;

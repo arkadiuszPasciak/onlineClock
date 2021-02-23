@@ -30,10 +30,10 @@ export default {
   flex-basis: 100%;
   color: $cl-white;
   @include below(medium) {
-    margin: 0 0 20px;
+    margin: 0 0 10px;
   }
   @include above(medium) {
-    margin: 0 0 40px;
+    margin: 0 0 20px;
   }
 }
 .minutes,
@@ -51,14 +51,15 @@ export default {
   }
 }
 .microseconds {
-  min-width: 100px;
   &::before {
     content: '.';
   }
   @include below(medium) {
+    min-width: 50px;
     font: 500 40px/80px $digital;
   }
   @include above(medium) {
+    min-width: 100px;
     font: 500 90px/130px $digital;
   }
 }

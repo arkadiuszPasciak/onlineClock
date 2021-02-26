@@ -1,5 +1,9 @@
 <template>
   <div class="Time">
+    <div class="hours" v-if="hours !== false">
+      <span v-if="hours < 10">0</span>
+      <span>{{ hours }}</span>
+    </div>
     <div class="minutes" v-if="minutes !== false">
       <span v-if="minutes < 10">0</span>
       <span>{{ minutes }}</span>
@@ -18,7 +22,7 @@
 <script>
 export default {
   name: 'Time',
-  props: ['minutes', 'seconds', 'microseconds'],
+  props: ['hours', 'minutes', 'seconds', 'microseconds'],
 };
 </script>
 
@@ -36,6 +40,7 @@ export default {
     margin: 0 0 20px;
   }
 }
+.hours,
 .minutes,
 .seconds {
   @include below(medium) {
@@ -45,7 +50,8 @@ export default {
     font: 500 160px/120px $digital;
   }
 }
-.minutes {
+.minutes,
+.hours {
   &::after {
     content: ':';
   }

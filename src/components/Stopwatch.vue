@@ -1,5 +1,5 @@
 <template>
-  <Time :minutes="minutes" :seconds="seconds" :microseconds="microseconds" />
+  <Time :hours="false" :minutes="minutes" :seconds="seconds" :microseconds="microseconds" />
   <Button
     :name="status ? 'Stop' : 'Start'"
     :modifier="status ? 'stop' : 'start'"

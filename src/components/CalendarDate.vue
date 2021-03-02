@@ -1,7 +1,7 @@
 <template>
   <div class="CalendarDate">
     <span class="day-of-the-week">{{ nameOfTheDay }}</span>
-    <span class="day">{{ day }}</span>
+    <span class="day">{{ numberOfTheMonthDay }}</span>
     <span class="month">{{ nameOfTheMonth }}</span>
     <span class="year">{{ year }}</span>
   </div>
@@ -17,12 +17,16 @@ export default {
     const year = date.getFullYear();
     let nameOfTheDay = '';
     let nameOfTheMonth = '';
+    let numberOfTheMonthDay = new Date(year, month, 0).getDate();
 
     switch (day) {
+      case 0:
+        nameOfTheDay = 'Sunday';
+        break;
       case 1:
         nameOfTheDay = 'Monday';
         break;
-       case 2:
+      case 2:
         nameOfTheDay = 'Tuesday';
         break;
       case 3:
@@ -37,46 +41,43 @@ export default {
       case 6:
         nameOfTheDay = 'Saturday';
         break;
-      case 7:
-        nameOfTheDay = 'Sunday';
-        break;
     }
 
     switch (month) {
-      case 1:
+      case 0:
         nameOfTheMonth = 'January';
         break;
-       case 2:
+      case 1:
         nameOfTheMonth = 'February';
         break;
-      case 3:
+      case 2:
         nameOfTheMonth = 'March';
         break;
-      case 4:
+      case 3:
         nameOfTheMonth = 'April';
         break;
-      case 5:
+      case 4:
         nameOfTheMonth = 'May';
         break;
-      case 6:
+      case 5:
         nameOfTheMonth = 'June';
         break;
-      case 7:
+      case 6:
         nameOfTheMonth = 'July';
         break;
-      case 8:
+      case 7:
         nameOfTheMonth = 'August';
         break;
-      case 9:
+      case 8:
         nameOfTheMonth = 'September';
         break;
-      case 10:
+      case 9:
         nameOfTheMonth = 'October';
         break;
-      case 11:
+      case 10:
         nameOfTheMonth = 'November';
         break;
-      case 12:
+      case 11:
         nameOfTheMonth = 'December';
         break;
     }
@@ -85,6 +86,7 @@ export default {
       day,
       nameOfTheDay,
       nameOfTheMonth,
+      numberOfTheMonthDay,
       year,
     }
   }
@@ -99,7 +101,7 @@ export default {
     font: 500 25px/29px $sourceSansPro;
   } 
   @include above(medium) {
-    padding: 40px;
+    padding: 20px 0 60px;
     font: 500 37px/41px $sourceSansPro;
   } 
 }

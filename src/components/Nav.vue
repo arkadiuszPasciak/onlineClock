@@ -32,8 +32,8 @@ export default {
       },
       {
         id: 4,
-        name: 'is-clock',
-        href: '/clock',
+        name: 'is-timezone',
+        href: '/timezone',
       },
     ];
     return { nav };
@@ -51,16 +51,16 @@ export default {
   height: 35px;
   margin: 0 10px;
   background: $cl-white;
-  &.is-stopwatch {
-    mask: url('~@/assets/icons/stopwatch.svg');
-  }
   &.is-alarm {
     mask: url('~@/assets/icons/alarm-clock.svg');
   }
   &.is-countdown {
     mask: url('~@/assets/icons/countdown-timer.svg');
   }
-  &.is-clock {
+  &.is-stopwatch {
+    mask: url('~@/assets/icons/stopwatch.svg');
+  }
+  &.is-timezone {
     mask: url('~@/assets/icons/clock.svg');
   }
 }

@@ -1,5 +1,10 @@
 <template>
-  <Time :hours="false" :minutes="minutes" :seconds="seconds" :microseconds="microseconds" />
+  <Time 
+    :hours="false"
+    :microseconds="microseconds"
+    :minutes="minutes"
+    :seconds="seconds"
+  />
   <Button
     :name="status ? 'Stop' : 'Start'"
     :modifier="status ? 'stop' : 'start'"
@@ -126,6 +131,7 @@ export default {
 
       roundTable.value.push(...values);
     }
+
     
     return {
       addRoundToTable,

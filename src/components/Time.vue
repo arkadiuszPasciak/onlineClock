@@ -1,5 +1,5 @@
 <template>
-  <div class="Time">
+  <div class="Time" :class="modifier">
     <div class="hours" v-if="hours !== false">
       <span v-if="hours < 10">0</span>
       <span>{{ hours }}</span>
@@ -22,7 +22,7 @@
 <script>
 export default {
   name: 'Time',
-  props: ['hours', 'minutes', 'seconds', 'microseconds'],
+  props: ['hours', 'minutes', 'seconds', 'microseconds', 'modifier'],
 };
 </script>
 
@@ -33,21 +33,30 @@ export default {
   justify-content: center;
   flex-basis: 100%;
   color: $cl-white;
-  @include below(medium) {
-    margin: 0 0 10px;
+  &:not(.small) {
+    @include below(medium) {
+      margin: 0 0 10px;
+    }
+    @include above(medium) {
+      margin: 0 0 20px;
+    }
+    .hours,
+    .minutes,
+    .seconds {
+      @include below(medium) {
+        font: 500 100px/60px $digital;
+      }
+      @include above(medium) {
+        font: 500 160px/120px $digital;
+      }
+    }
   }
-  @include above(medium) {
-    margin: 0 0 20px;
-  }
-}
-.hours,
-.minutes,
-.seconds {
-  @include below(medium) {
-    font: 500 100px/60px $digital;
-  }
-  @include above(medium) {
-    font: 500 160px/120px $digital;
+  &.small {
+    .hours,
+    .minutes,
+    .seconds {
+      font: 500 44px/20px $digital;
+    }
   }
 }
 .minutes,

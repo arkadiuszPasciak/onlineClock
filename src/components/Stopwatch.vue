@@ -132,7 +132,6 @@ export default {
       roundTable.value.push(...values);
     }
 
-    
     return {
       addRoundToTable,
       microseconds,

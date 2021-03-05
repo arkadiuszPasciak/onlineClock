@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Alarm from '../views/Alarm.vue'
-import Countdown from '../views/Countdown.vue'
-import Stopwatch from '../views/Stopwatch.vue'
-import TimeZone from '../views/TimeZone.vue'
+import Alarm from '../views/Alarm'
+import CountdownView from '../views/CountdownView'
+import Stopwatch from '../views/Stopwatch'
+import TimeZone from '../views/TimeZone'
 
 const routes = [
     {
@@ -13,7 +13,7 @@ const routes = [
     {
         path: '/countdown',
         name: 'Countdown',
-        component: Countdown
+        component: CountdownView
     },
     {
         path: '/stopwatch',

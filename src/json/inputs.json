@@ -1,0 +1,20 @@
+[
+  {
+    "key": 1,
+    "id": "set-time-hours",
+    "max": 99,
+    "text": "Hours"
+  },
+  {
+    "key": 2,
+    "id": "set-time-minutes",
+    "max": 59,
+    "text": "Minutes"
+  },
+  {
+    "key": 3,
+    "id": "set-time-seconds",
+    "max": 59,
+    "text": "Seconds"
+  }
+]

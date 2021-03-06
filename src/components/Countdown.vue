@@ -1,4 +1,7 @@
 <template>
+  <teleport to="#modal">
+    <SetTime ref="setTime"/>
+  </teleport>
   <Time 
     :hours="hours"
     :minutes="minutes"
@@ -13,6 +16,7 @@
   <Button
     name="Edit"
     modifier="edit"
+    @click="$refs.setTime.show = true"
   />
   <Button
     name="Reset"
@@ -25,10 +29,11 @@
 import { ref } from 'vue';
 import Button from '@/components/Button';
 import Time from '@/components/Time';
+import SetTime from '@/components/SetTime';
 
 export default {
   name: 'Countdown',
-  components: { Button, Time },
+  components: { Button, Time, SetTime },
   setup() {
     let hours = ref(1);
     let minutes = ref(0);

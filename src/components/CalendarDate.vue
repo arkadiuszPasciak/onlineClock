@@ -101,7 +101,7 @@ export default {
     font: 500 25px/29px $sourceSansPro;
   } 
   @include above(medium) {
-    padding: 20px 0 60px;
+    padding: 0 0 60px;
     font: 500 37px/41px $sourceSansPro;
   } 
 }

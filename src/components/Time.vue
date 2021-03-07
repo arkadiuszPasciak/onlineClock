@@ -36,9 +36,11 @@ export default {
   &:not(.small) {
     @include below(medium) {
       margin: 0 0 10px;
+      min-height: 90px;
     }
     @include above(medium) {
       margin: 0 0 20px;
+      min-height: 170px;
     }
     .hours,
     .minutes,

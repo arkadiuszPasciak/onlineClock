@@ -35,9 +35,9 @@ export default {
   name: 'Countdown',
   components: { Button, Time, SetTime },
   setup() {
-    let hours = ref(1);
+    let hours = ref(0);
     let minutes = ref(0);
-    let seconds = ref(2);
+    let seconds = ref(0);
     let status = ref(false);
 
     function startAndStopCountdown() {
@@ -55,15 +55,15 @@ export default {
         } else if (status.value === true) {
           seconds.value--
 
-          if (seconds.value === 0 && minutes.value > 0) {
-            seconds.value = 59
-            minutes.value--
-          }
-
-          if (seconds.value === 0 && minutes.value === 0 && hours.value > 0) {
+          if (seconds.value <= 0 && minutes.value <= 0 && hours.value > 0) {
             minutes.value = 59
             seconds.value = 59
             hours.value--
+          }
+
+          if (seconds.value <= 0 && minutes.value > 0) {
+            seconds.value = 59
+            minutes.value--
           }
 
           if (seconds.value <= 0 && minutes.value <= 0 && hours.value <= 0) {
@@ -74,17 +74,20 @@ export default {
       }
     }
     function resetCountdown() {
-      if (hours.value !== 0 || minutes.value !== 0 || seconds.value !== 0) {
-        hours.value = 0
-        minutes.value = 0
-        seconds.value = 0
-        if (status.value === true) {
-          status.value = false
-        }
-      }
+      hours.value = 0
+      minutes.value = 0
+      seconds.value = 0
+      status.value = false
     }
 
     return { hours, minutes, seconds, status, startAndStopCountdown, resetCountdown }
-  }
+  },
+  mounted() {
+    this.emitter.on('countdown', (time) => {
+      this.hours = time[0];
+      this.minutes = time[1];
+      this.seconds = time[2];
+    });
+  },
 }
 </script>

@@ -9,11 +9,13 @@
             :id="el.id"
             :max="el.max"
             :text="el.text"
+            :ref="el.id"
           />
         </div>
         <Button
           name="Add Time"
           modifier="start"
+          @click="saveTime"
          />
         <a class="close-btn" href="#" @click="show = false">&#10799;</a>
       </div>
@@ -30,10 +32,22 @@ import inputsJson from '@/json/inputs.json';
 export default {
   name: 'SetTime',
   components: { Button, Input },
+  props: ['value123'],
+  methods: {
+    saveTime() {
+      this.time = [];
+      this.time.push(this.$refs.set_time_hours.modeltest);
+      this.time.push(this.$refs.set_time_minutes.modeltest);
+      this.time.push(this.$refs.set_time_seconds.modeltest);
+      this.emitter.emit('countdown', (this.time));
+      this.show = false;
+    }
+  },
   setup() {
     const inputs = inputsJson;
     const show = ref(false);
-    return { inputs, show };
+    let time = [0, 0, 0];
+    return { inputs, show, time };
   },
 };
 </script>
@@ -59,7 +73,7 @@ export default {
   width: 100%;
   margin: auto;
   padding: 40px;
-  background: $cl-white;
+  background: $cl-light-blue;
 }
 .inputs {
   display: grid;
@@ -67,14 +81,14 @@ export default {
   justify-content: center;
   column-gap: 15px;
   grid-template-columns: repeat(3, auto);
-  margin: 0 0 10px;
+  margin: 0 0 20px;
 }
 .close-btn {
   position: absolute;
   color: $cl-white;
   cursor: pointer;
   transition: color .5s ease;
-  font-size: 20px;
+  font-size: 25px;
   @include below(big) {
     top: -150px;
     right: 35px;

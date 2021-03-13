@@ -3,7 +3,7 @@
     <div class="container">
       <div class="content">
         <Logo />
-        <Nav />
+        <Nav :name="false" size="small" />
       </div>
     </div>
   </header>

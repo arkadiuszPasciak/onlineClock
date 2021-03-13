@@ -5,6 +5,8 @@
 
 body {
   background: $cl-light-blue;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 #modal {
   position: relative;

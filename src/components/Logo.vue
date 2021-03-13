@@ -1,5 +1,5 @@
 <template>
-  <router-link class="Logo" to="/stopwatch" />
+  <router-link class="Logo" to="/" />
 </template>
 
 <script>

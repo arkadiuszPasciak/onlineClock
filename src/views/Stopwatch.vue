@@ -1,12 +1,12 @@
 <template>
-  <StopWatch />
+  <StopWatchComponent />
 </template>
 
 <script>
-import StopWatch from '@/components/Stopwatch';
+import StopWatchComponent from '@/components/Stopwatch';
 
 export default {
-  name: 'Stopwatch',
-  components: { StopWatch },
-}
+  name: 'StopwatchView',
+  components: { StopWatchComponent },
+};
 </script>

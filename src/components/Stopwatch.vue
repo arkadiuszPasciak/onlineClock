@@ -1,5 +1,5 @@
 <template>
-  <Time 
+  <Time
     :hours="false"
     :microseconds="microseconds"
     :minutes="minutes"
@@ -34,55 +34,55 @@ export default {
   components: { Button, RoundTable, Time },
   setup() {
     const roundTable = ref([]);
-    let id = ref(0);
-    let microseconds = ref(0);
-    let minutes = ref(0);
-    let seconds = ref(0);
-    let status = ref(false);
+    const id = ref(-1);
+    const microseconds = ref(0);
+    const minutes = ref(0);
+    const seconds = ref(0);
+    const status = ref(false);
 
     function resetStopwatch() {
       if (minutes.value !== 0 || seconds.value !== 0) {
-        microseconds.value = 0
-        minutes.value = 0
-        seconds.value = 0
-        status.value = true
-        roundTable.value.splice(0, roundTable.value.length)
-        id.value = 0
-        startAndStopStopwatch()
+        microseconds.value = 0;
+        minutes.value = 0;
+        seconds.value = 0;
+        status.value = true;
+        roundTable.value.splice(0, roundTable.value.length);
+        id.value = -1;
+        startAndStopStopwatch();
       }
     }
 
     function startAndStopStopwatch() {
-      let intervalMicroseconds = setInterval(countMicroseconds, 10);
-      let intervalSeconds = setInterval(countSeconds, 1000);
+      const intervalMicroseconds = setInterval(countMicroseconds, 10);
+      const intervalSeconds = setInterval(countSeconds, 1000);
 
       if (status.value === false) {
-        status.value = true
+        status.value = true;
       } else if (status.value === true) {
-        status.value = false
+        status.value = false;
       }
 
       function countMicroseconds() {
         if (status.value === false) {
-          clearInterval(intervalMicroseconds)
+          clearInterval(intervalMicroseconds);
         } else if (status.value === true) {
-          microseconds.value += 1
-        
+          microseconds.value += 1;
+
           if (microseconds.value === 100) {
-            microseconds.value = 0
+            microseconds.value = 0;
           }
         }
       }
 
       function countSeconds() {
         if (status.value === false) {
-          clearInterval(intervalSeconds)
+          clearInterval(intervalSeconds);
         } else if (status.value === true) {
-          seconds.value += 1
-        
+          seconds.value += 1;
+
           if (seconds.value === 60) {
-            minutes.value++
-            seconds.value = 0
+            minutes.value += 1;
+            seconds.value = 0;
           }
         }
       }
@@ -91,42 +91,43 @@ export default {
     function addRoundToTable() {
       const values = [
         {
-          id: id.value++,
+          id: id.value += 1,
           totalSeconds: seconds.value,
           totalMinutes: minutes.value,
           totalMicroseconds: microseconds.value,
           roundSeconds: 0,
           roundMinute: 0,
           roundMicroseconds: 0,
-        }
+        },
       ];
 
       if (values[0].id > 0) {
-        let id = values[0].id - 1;
+        const previousId = values[0].id - 1;
 
         if (minutes.value !== 0 && minutes.value !== values[0].totalMinutes) {
-          values[0].roundMinute = minutes.value - roundTable.value[id].totalMinutes
+          values[0].roundMinute = minutes.value - roundTable.value[previousId].totalMinutes;
         }
-        if (microseconds.value !== 0 && roundTable.value[id].totalMicroseconds !== 0) {
-          let currentTotalMicroseconds = values[0].totalMicroseconds + (values[0].totalSeconds * 100);
-          let previousTotalMicroseconds = roundTable.value[id].totalMicroseconds + (roundTable.value[id].totalSeconds * 100);
-          let sumMicroseconds = currentTotalMicroseconds - previousTotalMicroseconds;
-          let restMicroseconds = parseInt(sumMicroseconds.toString().slice(-2));
-          let restSeconds = parseInt(sumMicroseconds.toString().slice(0, -2));
+        if (microseconds.value !== 0 && roundTable.value[previousId].totalMicroseconds !== 0) {
+          const currentTotalMicroseconds = values[0].totalMicroseconds + (values[0].totalSeconds * 100);
+          const previousTotalMicroseconds = roundTable.value[previousId].totalMicroseconds + (roundTable.value[previousId].totalSeconds * 100);
+          const sumMicroseconds = currentTotalMicroseconds - previousTotalMicroseconds;
+          const restMicroseconds = parseInt(sumMicroseconds.toString().slice(-2), 10);
+          const restSeconds = parseInt(sumMicroseconds.toString().slice(0, -2), 10);
 
           if (sumMicroseconds < 100) {
-            values[0].roundMicroseconds = sumMicroseconds
-            values[0].roundSeconds = 0
+            values[0].roundMicroseconds = sumMicroseconds;
+            values[0].roundSeconds = 0;
           } else if (sumMicroseconds >= 100) {
-            values[0].roundMicroseconds = restMicroseconds
-            values[0].roundSeconds = restSeconds
+            values[0].roundMicroseconds = restMicroseconds;
+            values[0].roundSeconds = restSeconds;
           }
         } else {
-          values[0].roundSeconds = 0
+          values[0].roundSeconds = 0;
         }
       } else if (values[0].id === 0) {
-        values[0].roundSeconds = seconds.value
-        values[0].roundMicroseconds = microseconds.value
+        values[0].roundMinutes = minutes.value;
+        values[0].roundSeconds = seconds.value;
+        values[0].roundMicroseconds = microseconds.value;
       }
 
       roundTable.value.push(...values);
@@ -141,7 +142,7 @@ export default {
       seconds,
       status,
       startAndStopStopwatch,
-    }
-  }
+    };
+  },
 };
 </script>

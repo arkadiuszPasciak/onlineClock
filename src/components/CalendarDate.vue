@@ -15,9 +15,9 @@ export default {
     const day = date.getDay();
     const month = date.getMonth();
     const year = date.getFullYear();
+    const numberOfTheMonthDay = new Date(year, month, 0).getDate();
     let nameOfTheDay = '';
     let nameOfTheMonth = '';
-    let numberOfTheMonthDay = new Date(year, month, 0).getDate();
 
     switch (day) {
       case 0:
@@ -41,6 +41,8 @@ export default {
       case 6:
         nameOfTheDay = 'Saturday';
         break;
+      default:
+        nameOfTheDay = 'Sunday';
     }
 
     switch (month) {
@@ -80,6 +82,8 @@ export default {
       case 11:
         nameOfTheMonth = 'December';
         break;
+      default:
+        nameOfTheDay = 'January';
     }
 
     return {
@@ -88,8 +92,8 @@ export default {
       nameOfTheMonth,
       numberOfTheMonthDay,
       year,
-    }
-  }
+    };
+  },
 };
 </script>
 
@@ -99,11 +103,11 @@ export default {
   @include below(medium) {
     padding: 20px;
     font: 500 25px/29px $sourceSansPro;
-  } 
+  }
   @include above(medium) {
     padding: 0 0 60px;
     font: 500 37px/41px $sourceSansPro;
-  } 
+  }
 }
 .day-of-the-week {
   &::after {

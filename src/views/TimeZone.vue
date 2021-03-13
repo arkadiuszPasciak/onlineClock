@@ -10,7 +10,7 @@ import Clock from '@/components/Clock';
 import TimeZoneTable from '@/components/TimeZoneTable';
 
 export default {
-  name: 'TimeZone',
+  name: 'TimeZoneView',
   components: { CalendarDate, Clock, TimeZoneTable },
 };
 </script>

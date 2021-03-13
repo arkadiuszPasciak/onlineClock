@@ -20,7 +20,7 @@ export default {
   setup() {
     const countries = jsonCountries;
     return { countries };
-  }
+  },
 };
 </script>
 

@@ -41,12 +41,12 @@ export default {
       this.time.push(this.$refs.set_time_seconds.modeltest);
       this.emitter.emit('countdown', (this.time));
       this.show = false;
-    }
+    },
   },
   setup() {
     const inputs = inputsJson;
     const show = ref(false);
-    let time = [0, 0, 0];
+    const time = [0, 0, 0];
     return { inputs, show, time };
   },
 };

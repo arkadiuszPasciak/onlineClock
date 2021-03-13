@@ -25,32 +25,32 @@ export default {
     },
   },
   setup(props) {
-    let date = new Date();
+    const date = new Date();
     let hour;
 
     if (props.timezone === false) {
       hour = date.toLocaleTimeString();
     } else {
-      hour = date.toLocaleTimeString('en-GB', {timeZone: props.timezone});
+      hour = date.toLocaleTimeString('en-GB', { timeZone: props.timezone });
     }
 
-    const hours = ref(parseInt(hour.slice(0, 2)));
-    const minutes = ref(parseInt(hour.slice(3, 5)));
-    const seconds = ref(parseInt(hour.slice(6, 8)));
+    const hours = ref(parseInt(hour.slice(0, 2), 10));
+    const minutes = ref(parseInt(hour.slice(3, 5), 10));
+    const seconds = ref(parseInt(hour.slice(6, 8), 10));
 
     function clock() {
-      seconds.value += 1
+      seconds.value += 1;
 
       if (seconds.value === 60) {
-        minutes.value++
-        seconds.value = 0
+        minutes.value += 1;
+        seconds.value = 0;
       }
       if (minutes.value === 60) {
-        hours.value++
-        minutes.value = 0
+        hours.value += 1;
+        minutes.value = 0;
       }
       if (hours.value === 24) {
-        hours.value = 0
+        hours.value = 0;
       }
     }
 
@@ -60,8 +60,7 @@ export default {
       hours,
       minutes,
       seconds,
-    }
+    };
   },
-}
+};
 </script>
-

@@ -2,7 +2,7 @@
   <teleport to="#modal">
     <SetTime ref="setTime"/>
   </teleport>
-  <Time 
+  <Time
     :hours="hours"
     :minutes="minutes"
     :seconds="seconds"
@@ -10,7 +10,10 @@
   />
   <Button
     :name="status ? 'Stop' : 'Start'"
-    :modifier="[status ? 'stop' : 'start', hours <= 0 && minutes <= 0 && seconds <= 0 ? 'disabled' : '']"
+    :modifier="[
+      status ? 'stop' : 'start',
+      hours <= 0 && minutes <= 0 && seconds <= 0 ? 'disabled' : ''
+    ]"
     @click="startAndStopCountdown"
   />
   <Button
@@ -35,59 +38,68 @@ export default {
   name: 'Countdown',
   components: { Button, Time, SetTime },
   setup() {
-    let hours = ref(0);
-    let minutes = ref(0);
-    let seconds = ref(0);
-    let status = ref(false);
+    const hours = ref(0);
+    const minutes = ref(0);
+    const seconds = ref(0);
+    const status = ref(false);
 
     function startAndStopCountdown() {
-      let intervalSeconds = setInterval(countSeconds, 1000);
-
-      if (status.value === false) {
-        status.value = true
-      } else if (status.value === true) {
-        status.value = false
-      }
+      const intervalSeconds = setInterval(countSeconds, 1000);
 
       function countSeconds() {
         if (status.value === false) {
-          clearInterval(intervalSeconds)
+          clearInterval(intervalSeconds);
         } else if (status.value === true) {
-          seconds.value--
+          seconds.value -= 1;
 
           if (seconds.value <= 0 && minutes.value <= 0 && hours.value > 0) {
-            minutes.value = 59
-            seconds.value = 59
-            hours.value--
+            minutes.value = 59;
+            seconds.value = 59;
+            hours.value -= 1;
           }
 
           if (seconds.value <= 0 && minutes.value > 0) {
-            seconds.value = 59
-            minutes.value--
+            seconds.value = 59;
+            minutes.value -= 1;
           }
 
           if (seconds.value <= 0 && minutes.value <= 0 && hours.value <= 0) {
-            clearInterval(intervalSeconds)
-            status.value = false
+            clearInterval(intervalSeconds);
+            status.value = false;
           }
         }
       }
+
+      if (status.value === false) {
+        status.value = true;
+      } else if (status.value === true) {
+        status.value = false;
+      }
     }
     function resetCountdown() {
-      hours.value = 0
-      minutes.value = 0
-      seconds.value = 0
-      status.value = false
+      hours.value = 0;
+      minutes.value = 0;
+      seconds.value = 0;
+      status.value = false;
     }
 
-    return { hours, minutes, seconds, status, startAndStopCountdown, resetCountdown }
+    return {
+      hours,
+      minutes,
+      seconds,
+      status,
+      startAndStopCountdown,
+      resetCountdown,
+    };
   },
   mounted() {
     this.emitter.on('countdown', (time) => {
-      this.hours = time[0];
-      this.minutes = time[1];
-      this.seconds = time[2];
+      const [hours, minutes, seconds] = time;
+
+      this.hours = hours;
+      this.minutes = minutes;
+      this.seconds = seconds;
     });
   },
-}
+};
 </script>

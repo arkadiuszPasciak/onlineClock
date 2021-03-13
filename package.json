@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vue/eslint-config-airbnb": "^5.3.0",
     "core-js": "^3.6.5",
     "mitt": "^2.1.0",
     "vue": "^3.0.0",
@@ -32,12 +33,35 @@
     },
     "extends": [
       "plugin:vue/vue3-essential",
-      "eslint:recommended"
+      "@vue/airbnb"
     ],
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-unused-vars": "off",
+      "import/extensions": ["error", "always", {
+        "js": "never",
+        "mjs": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+        "vue": "never"
+      }],
+      "no-use-before-define": ["error", { "functions": false, "variables": false }],
+      "max-len": ["error", { "code": 150 }]
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        ],
+        "env": {
+          "jest": true
+        }
+      }
+    ]
   },
   "browserslist": [
     "> 1%",

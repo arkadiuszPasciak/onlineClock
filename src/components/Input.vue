@@ -18,9 +18,9 @@ export default {
   name: 'Input',
   props: ['id', 'max', 'text'],
   setup() {
-    let modeltest = ref(0);
+    const modeltest = ref(0);
     return { modeltest };
-  }
+  },
 };
 </script>
 

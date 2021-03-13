@@ -27,11 +27,6 @@ export default {
       },
       {
         id: 3,
-        name: 'is-alarm',
-        href: '/alarm',
-      },
-      {
-        id: 4,
         name: 'is-timezone',
         href: '/timezone',
       },
@@ -51,9 +46,6 @@ export default {
   height: 35px;
   margin: 0 10px;
   background: $cl-white;
-  &.is-alarm {
-    mask: url('~@/assets/icons/alarm-clock.svg');
-  }
   &.is-countdown {
     mask: url('~@/assets/icons/countdown-timer.svg');
   }

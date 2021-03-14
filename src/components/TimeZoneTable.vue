@@ -10,18 +10,19 @@
   </div>
 </template>
 
-<script>
-import TimeZoneItem from '@/components/TimeZoneItem';
-import jsonCountries from '@/json/countries.json';
+<script lang="ts">
+import { defineComponent } from 'vue';
+import TimeZoneItem from './TimeZoneItem';
+import jsonCountries from '../json/countries.json';
 
-export default {
+export default defineComponent({
   name: 'TimeZoneTable',
   components: { TimeZoneItem },
   setup() {
     const countries = jsonCountries;
     return { countries };
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

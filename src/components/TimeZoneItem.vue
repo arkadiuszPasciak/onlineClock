@@ -8,14 +8,15 @@
   </div>
 </template>
 
-<script>
-import Clock from '@/components/Clock';
+<script lang="ts">
+import { defineComponent } from 'vue';
+import Clock from './Clock';
 
-export default {
+export default defineComponent({
   name: 'TimeZoneItem',
   props: ['city', 'country', 'timezone'],
   components: { Clock },
-};
+});
 </script>
 
 <style lang="scss" scoped>

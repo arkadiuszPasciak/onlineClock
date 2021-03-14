@@ -12,8 +12,10 @@
   </nav>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'Nav',
   props: ['name', 'size'],
   setup() {
@@ -39,7 +41,7 @@ export default {
     ];
     return { nav };
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

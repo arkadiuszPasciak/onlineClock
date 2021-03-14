@@ -2,11 +2,11 @@
   <Nav :name="true" size="big" />
 </template>
 
-<script>
-import Nav from '@/components/Nav';
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'HomePage',
   components: { Nav },
-};
+});
 </script>

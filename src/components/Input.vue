@@ -11,17 +11,17 @@
   </div>
 </template>
 
-<script>
-import { ref } from 'vue';
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'Input',
   props: ['id', 'max', 'text'],
   setup() {
     const modeltest = ref(0);
     return { modeltest };
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

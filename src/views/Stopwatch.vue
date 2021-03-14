@@ -2,11 +2,12 @@
   <StopWatchComponent />
 </template>
 
-<script>
-import StopWatchComponent from '@/components/Stopwatch';
+<script lang="ts">
+import { defineComponent } from 'vue';
+import StopWatchComponent from '../components/Stopwatch';
 
-export default {
+export default defineComponent({
   name: 'StopwatchView',
   components: { StopWatchComponent },
-};
+});
 </script>

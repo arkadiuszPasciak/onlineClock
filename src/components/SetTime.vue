@@ -23,13 +23,13 @@
   </transition>
 </template>
 
-<script>
-import { ref } from 'vue';
-import Button from '@/components/Button';
-import Input from '@/components/Input';
-import inputsJson from '@/json/inputs.json';
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+import Button from './components/Button';
+import Input from './components/Input';
+import inputsJson from '../json/inputs.json';
 
-export default {
+export default defineComponent({
   name: 'SetTime',
   components: { Button, Input },
   props: ['value123'],
@@ -49,7 +49,7 @@ export default {
     const time = [0, 0, 0];
     return { inputs, show, time };
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

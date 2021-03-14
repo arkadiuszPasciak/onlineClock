@@ -2,16 +2,18 @@
   <main class="Main">
     <div class="container">
       <div class="content">
-        <router-view/>
+        <router-view />
       </div>
     </div>
   </main>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'Main',
-};
+});
 </script>
 
 <style lang="scss" scoped>

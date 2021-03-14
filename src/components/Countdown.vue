@@ -28,13 +28,13 @@
   />
 </template>
 
-<script>
-import { ref } from 'vue';
-import Button from '@/components/Button';
-import Time from '@/components/Time';
-import SetTime from '@/components/SetTime';
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+import Button from './components/Button';
+import Time from './components/Time';
+import SetTime from './components/SetTime';
 
-export default {
+export default defineComponent({
   name: 'Countdown',
   components: { Button, Time, SetTime },
   setup() {
@@ -101,5 +101,5 @@ export default {
       this.seconds = seconds;
     });
   },
-};
+});
 </script>

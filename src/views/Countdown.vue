@@ -2,11 +2,12 @@
   <CountdownComponent />
 </template>
 
-<script>
-import CountdownComponent from '@/components/Countdown';
+<script lang="ts">
+import { defineComponent } from 'vue';
+import CountdownComponent from '../components/Countdown';
 
-export default {
+export default defineComponent({
   name: 'CountdownView',
   components: { CountdownComponent },
-};
+});
 </script>

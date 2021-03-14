@@ -9,17 +9,18 @@
   </header>
 </template>
 
-<script>
-import Logo from '@/components/Logo';
-import Nav from '@/components/Nav';
+<script lang="ts">
+import { defineComponent } from 'vue';
+import Logo from './components/Logo';
+import Nav from './components/Nav';
 
-export default {
+export default defineComponent({
   name: 'Header',
   components: {
     Logo,
     Nav,
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

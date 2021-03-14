@@ -8,11 +8,11 @@
   />
 </template>
 
-<script>
-import { ref } from 'vue';
-import Time from '@/components/Time';
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+import Time from './components/Time';
 
-export default {
+export default defineComponent({
   name: 'Clock',
   components: { Time },
   props: {
@@ -62,5 +62,5 @@ export default {
       seconds,
     };
   },
-};
+});
 </script>

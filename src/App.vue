@@ -3,15 +3,16 @@
   <Main />
 </template>
 
-<script>
-import Header from '@/components/Header';
-import Main from '@/components/Main';
+<script lang="ts">
+import { defineComponent } from 'vue';
+import Header from './components/Header';
+import Main from './components/Main';
 
-export default {
+export default defineComponent({
   name: 'App',
   components: {
     Header,
     Main,
   },
-};
+});
 </script>

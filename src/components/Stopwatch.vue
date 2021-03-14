@@ -23,13 +23,13 @@
   <RoundTable :table="roundTable" />
 </template>
 
-<script>
-import { ref } from 'vue';
-import Button from '@/components/Button';
-import RoundTable from '@/components/RoundTable';
-import Time from '@/components/Time';
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+import Button from './Button';
+import RoundTable from './RoundTable';
+import Time from './Time';
 
-export default {
+export default defineComponent({
   name: 'Stopwatch',
   components: { Button, RoundTable, Time },
   setup() {
@@ -144,5 +144,5 @@ export default {
       startAndStopStopwatch,
     };
   },
-};
+});
 </script>

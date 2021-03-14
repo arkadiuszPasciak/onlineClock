@@ -2,11 +2,13 @@
   <button class="Button" :class="modifier">{{ name }}</button>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'Button',
   props: ['name', 'modifier'],
-};
+});
 </script>
 
 <style lang="scss" scoped>

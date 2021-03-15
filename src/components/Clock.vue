@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import Time from './components/Time';
+import Time from '@/components/Time.vue';
 
 export default defineComponent({
   name: 'Clock',

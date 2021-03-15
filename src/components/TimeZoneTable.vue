@@ -12,8 +12,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import TimeZoneItem from './TimeZoneItem';
-import jsonCountries from '../json/countries.json';
+import TimeZoneItem from '@/components/TimeZoneItem.vue';
+import jsonCountries from '@/json/countries.json';
 
 export default defineComponent({
   name: 'TimeZoneTable',

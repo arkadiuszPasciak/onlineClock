@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import CountdownView from '@/views/Countdown';
-import HomePage from '@/views/HomePage';
-import Stopwatch from '@/views/Stopwatch';
-import TimeZone from '@/views/TimeZone';
+import CountdownView from '@/views/Countdown.vue';
+import HomePage from '@/views/HomePage.vue';
+import Stopwatch from '@/views/Stopwatch.vue';
+import TimeZone from '@/views/TimeZone.vue';
 
 const routes = [
   {

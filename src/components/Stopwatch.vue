@@ -25,20 +25,20 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import Button from './Button';
-import RoundTable from './RoundTable';
-import Time from './Time';
+import Button from '@/components/Button.vue';
+import RoundTable from '@/components/RoundTable.vue';
+import Time from '@/components/Time.vue';
 
 export default defineComponent({
   name: 'Stopwatch',
   components: { Button, RoundTable, Time },
   setup() {
     const roundTable = ref([]);
-    const id = ref(-1);
-    const microseconds = ref(0);
-    const minutes = ref(0);
-    const seconds = ref(0);
-    const status = ref(false);
+    const id: number = ref(-1);
+    const microseconds: number = ref(0);
+    const minutes: number = ref(0);
+    const seconds: number = ref(0);
+    const status: boolean = ref(false);
 
     function resetStopwatch() {
       if (minutes.value !== 0 || seconds.value !== 0) {
@@ -102,17 +102,17 @@ export default defineComponent({
       ];
 
       if (values[0].id > 0) {
-        const previousId = values[0].id - 1;
+        const previousId: number = values[0].id - 1;
 
         if (minutes.value !== 0 && minutes.value !== values[0].totalMinutes) {
           values[0].roundMinute = minutes.value - roundTable.value[previousId].totalMinutes;
         }
         if (microseconds.value !== 0 && roundTable.value[previousId].totalMicroseconds !== 0) {
-          const currentTotalMicroseconds = values[0].totalMicroseconds + (values[0].totalSeconds * 100);
-          const previousTotalMicroseconds = roundTable.value[previousId].totalMicroseconds + (roundTable.value[previousId].totalSeconds * 100);
-          const sumMicroseconds = currentTotalMicroseconds - previousTotalMicroseconds;
-          const restMicroseconds = parseInt(sumMicroseconds.toString().slice(-2), 10);
-          const restSeconds = parseInt(sumMicroseconds.toString().slice(0, -2), 10);
+          const currentTotalMicroseconds: number = values[0].totalMicroseconds + (values[0].totalSeconds * 100);
+          const previousTotalMicroseconds: number = roundTable.value[previousId].totalMicroseconds + (roundTable.value[previousId].totalSeconds * 100);
+          const sumMicroseconds: number = currentTotalMicroseconds - previousTotalMicroseconds;
+          const restMicroseconds: number = parseInt(sumMicroseconds.toString().slice(-2), 10);
+          const restSeconds: number = parseInt(sumMicroseconds.toString().slice(0, -2), 10);
 
           if (sumMicroseconds < 100) {
             values[0].roundMicroseconds = sumMicroseconds;

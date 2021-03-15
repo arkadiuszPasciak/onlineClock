@@ -25,9 +25,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import Button from './components/Button';
-import Input from './components/Input';
-import inputsJson from '../json/inputs.json';
+import Button from '@/components/Button.vue';
+import Input from '@/components/Input.vue';
+import inputsJson from '@/json/inputs.json';
 
 export default defineComponent({
   name: 'SetTime',
@@ -45,8 +45,8 @@ export default defineComponent({
   },
   setup() {
     const inputs = inputsJson;
-    const show = ref(false);
-    const time = [0, 0, 0];
+    const show: boolean = ref(false);
+    const time: number = [0, 0, 0];
     return { inputs, show, time };
   },
 });

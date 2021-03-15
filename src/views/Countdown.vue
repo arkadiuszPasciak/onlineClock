@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import CountdownComponent from '../components/Countdown';
+import CountdownComponent from '@/components/Countdown.vue';
 
 export default defineComponent({
   name: 'CountdownView',

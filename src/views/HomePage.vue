@@ -4,6 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import Nav from '@/components/Nav.vue';
 
 export default defineComponent({
   name: 'HomePage',

@@ -14,12 +14,12 @@ export default defineComponent({
   name: 'CalendarDate',
   setup() {
     const date = new Date();
-    const day = date.getDay();
-    const month = date.getMonth();
-    const year = date.getFullYear();
-    const numberOfTheMonthDay = new Date(year, month, 0).getDate();
-    let nameOfTheDay = '';
-    let nameOfTheMonth = '';
+    const day: number = date.getDay();
+    const month: number = date.getMonth();
+    const year: number = date.getFullYear();
+    const numberOfTheMonthDay: number = new Date(year, month, 0).getDate();
+    let nameOfTheDay: string = '';
+    let nameOfTheMonth: string = '';
 
     switch (day) {
       case 0:

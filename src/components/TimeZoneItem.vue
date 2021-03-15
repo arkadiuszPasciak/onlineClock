@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Clock from './Clock';
+import Clock from '@/components/Clock.vue';
 
 export default defineComponent({
   name: 'TimeZoneItem',

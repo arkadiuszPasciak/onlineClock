@@ -30,18 +30,18 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import Button from './components/Button';
-import Time from './components/Time';
-import SetTime from './components/SetTime';
+import Button from '@/components/Button.vue';
+import Time from '@/components/Time.vue';
+import SetTime from '@/components/SetTime.vue';
 
 export default defineComponent({
   name: 'Countdown',
   components: { Button, Time, SetTime },
   setup() {
-    const hours = ref(0);
-    const minutes = ref(0);
-    const seconds = ref(0);
-    const status = ref(false);
+    const hours: number = ref(0);
+    const minutes: number = ref(0);
+    const seconds: number = ref(0);
+    const status: boolean = ref(false);
 
     function startAndStopCountdown() {
       const intervalSeconds = setInterval(countSeconds, 1000);

@@ -1,7 +1,7 @@
 <template>
   <nav class="Nav" :class="size">
     <router-link
-      v-for="el in nav"
+      v-for="el in links"
       :key="el.id"
       class="btn"
       :to="el.href"
@@ -14,32 +14,20 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import jsonNav from '@/json/nav.json';
 
 export default defineComponent({
   name: 'Nav',
   props: ['name', 'size'],
   setup() {
-    const nav = [
-      {
-        id: 1,
-        name: 'Stopwatch',
-        modified: 'is-stopwatch',
-        href: '/stopwatch',
-      },
-      {
-        id: 2,
-        name: 'Countdown',
-        modified: 'is-countdown',
-        href: '/countdown',
-      },
-      {
-        id: 3,
-        name: 'Timezone',
-        modified: 'is-timezone',
-        href: '/timezone',
-      },
-    ];
-    return { nav };
+    interface Nav = {
+      id: number;
+      name: string;
+      modified: string;
+      href: string;
+    }
+    const links: Nav = jsonNav;
+    return { links };
   },
 });
 </script>

@@ -44,9 +44,15 @@ export default defineComponent({
     },
   },
   setup() {
-    const inputs = inputsJson;
+    interface Inputs = {
+      key: number,
+      id: string,
+      max: number,
+      text: string,
+    }
+    const inputs: Inputs = inputsJson;
     const show: boolean = ref(false);
-    const time: number = [0, 0, 0];
+    const time: number[] = [0, 0, 0];
     return { inputs, show, time };
   },
 });

@@ -33,7 +33,16 @@ export default defineComponent({
   name: 'Stopwatch',
   components: { Button, RoundTable, Time },
   setup() {
-    const roundTable = ref([]);
+    interface RoundTable = {
+      roundMinute: number,
+      roundSeconds: number,
+      roundMicroseconds: number,
+      totalMinutes: number,
+      totalSeconds: number,
+      totalMicroseconds: number,
+    }
+
+    const roundTable: RoundTable = ref([]);
     const id: number = ref(-1);
     const microseconds: number = ref(0);
     const minutes: number = ref(0);

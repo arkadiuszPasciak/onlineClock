@@ -19,6 +19,13 @@ export default defineComponent({
   name: 'TimeZoneTable',
   components: { TimeZoneItem },
   setup() {
+    interface Countries = {
+      key: number,
+      zone: string,
+      country: string,
+      city: string,
+    }
+
     const countries = jsonCountries;
     return { countries };
   },

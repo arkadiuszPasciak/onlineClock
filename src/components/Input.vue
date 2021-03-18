@@ -18,7 +18,7 @@ export default defineComponent({
   name: 'Input',
   props: ['id', 'max', 'text'],
   setup() {
-    const modeltest: number = ref(0);
+    const modeltest = ref<number>(0);
     return { modeltest };
   },
 });

@@ -25,6 +25,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { RoundAndTotalTable } from '@/types';
 import Button from '@/components/Button.vue';
 import RoundTable from '@/components/RoundTable.vue';
 import Time from '@/components/Time.vue';
@@ -33,21 +34,12 @@ export default defineComponent({
   name: 'Stopwatch',
   components: { Button, RoundTable, Time },
   setup() {
-    interface RoundTable = {
-      roundMinute: number,
-      roundSeconds: number,
-      roundMicroseconds: number,
-      totalMinutes: number,
-      totalSeconds: number,
-      totalMicroseconds: number,
-    }
-
-    const roundTable: RoundTable = ref([]);
-    const id: number = ref(-1);
-    const microseconds: number = ref(0);
-    const minutes: number = ref(0);
-    const seconds: number = ref(0);
-    const status: boolean = ref(false);
+    const roundTable = ref<any>([]);
+    const id = ref<number>(-1);
+    const microseconds = ref<number>(0);
+    const seconds = ref<number>(0);
+    const minutes = ref<number>(0);
+    const status = ref<boolean>(false);
 
     function resetStopwatch() {
       if (minutes.value !== 0 || seconds.value !== 0) {
@@ -105,7 +97,7 @@ export default defineComponent({
           totalMinutes: minutes.value,
           totalMicroseconds: microseconds.value,
           roundSeconds: 0,
-          roundMinute: 0,
+          roundMinutes: 0,
           roundMicroseconds: 0,
         },
       ];
@@ -114,7 +106,7 @@ export default defineComponent({
         const previousId: number = values[0].id - 1;
 
         if (minutes.value !== 0 && minutes.value !== values[0].totalMinutes) {
-          values[0].roundMinute = minutes.value - roundTable.value[previousId].totalMinutes;
+          values[0].roundMinutes = minutes.value - roundTable.value[previousId].totalMinutes;
         }
         if (microseconds.value !== 0 && roundTable.value[previousId].totalMicroseconds !== 0) {
           const currentTotalMicroseconds: number = values[0].totalMicroseconds + (values[0].totalSeconds * 100);

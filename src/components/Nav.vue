@@ -15,18 +15,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import jsonNav from '@/json/nav.json';
+import { Nav } from '@/types';
 
 export default defineComponent({
   name: 'Nav',
   props: ['name', 'size'],
   setup() {
-    interface Nav = {
-      id: number;
-      name: string;
-      modified: string;
-      href: string;
-    }
-    const links: Nav = jsonNav;
+    const links = jsonNav as Nav;
     return { links };
   },
 });

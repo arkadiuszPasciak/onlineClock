@@ -21,6 +21,7 @@ export default defineComponent({
       default: '',
     },
     timezone: {
+      type: Boolean,
       default: false,
     },
   },
@@ -34,9 +35,9 @@ export default defineComponent({
       hour = date.toLocaleTimeString('en-GB', { timeZone: props.timezone });
     }
 
-    const hours: number = ref(parseInt(hour.slice(0, 2), 10));
-    const minutes: number = ref(parseInt(hour.slice(3, 5), 10));
-    const seconds: number = ref(parseInt(hour.slice(6, 8), 10));
+    const hours = ref<number>(parseInt(hour.slice(0, 2), 10));
+    const minutes = ref<number>(parseInt(hour.slice(3, 5), 10));
+    const seconds = ref<number>(parseInt(hour.slice(6, 8), 10));
 
     function clock() {
       seconds.value += 1;

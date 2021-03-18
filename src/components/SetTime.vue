@@ -25,6 +25,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { Inputs } from '@/types';
 import Button from '@/components/Button.vue';
 import Input from '@/components/Input.vue';
 import inputsJson from '@/json/inputs.json';
@@ -44,14 +45,8 @@ export default defineComponent({
     },
   },
   setup() {
-    interface Inputs = {
-      key: number,
-      id: string,
-      max: number,
-      text: string,
-    }
-    const inputs: Inputs = inputsJson;
-    const show: boolean = ref(false);
+    const inputs = inputsJson as Inputs;
+    const show = ref<boolean>(false);
     const time: number[] = [0, 0, 0];
     return { inputs, show, time };
   },

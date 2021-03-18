@@ -38,10 +38,10 @@ export default defineComponent({
   name: 'Countdown',
   components: { Button, Time, SetTime },
   setup() {
-    const hours: number = ref(0);
-    const minutes: number = ref(0);
-    const seconds: number = ref(0);
-    const status: boolean = ref(false);
+    const hours = ref<number>(0);
+    const minutes = ref<number>(0);
+    const seconds = ref<number>(0);
+    const status = ref<boolean>(false);
 
     function startAndStopCountdown() {
       const intervalSeconds = setInterval(countSeconds, 1000);
@@ -93,7 +93,7 @@ export default defineComponent({
     };
   },
   mounted() {
-    this.emitter.on('countdown', (time) => {
+    this.emitter.on('countdown', (time: number[]) => {
       const [hours, minutes, seconds] = time;
 
       this.hours = hours;

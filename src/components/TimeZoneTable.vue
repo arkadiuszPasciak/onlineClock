@@ -12,6 +12,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { Countries } from '@/types';
 import TimeZoneItem from '@/components/TimeZoneItem.vue';
 import jsonCountries from '@/json/countries.json';
 
@@ -19,14 +20,7 @@ export default defineComponent({
   name: 'TimeZoneTable',
   components: { TimeZoneItem },
   setup() {
-    interface Countries = {
-      key: number,
-      zone: string,
-      country: string,
-      city: string,
-    }
-
-    const countries = jsonCountries;
+    const countries = jsonCountries as Countries;
     return { countries };
   },
 });

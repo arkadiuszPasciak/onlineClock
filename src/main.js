@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import mitt from 'mitt';
-import App from './App.vue';
+import App from './App';
 import router from './router';
 
 require('./styles/styles.scss');

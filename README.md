@@ -20,5 +20,10 @@ npm run build
 npm run lint
 ```
 
+### Trello board
+
+https://trello.com/b/0IvOD42t/onlineclock
+
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

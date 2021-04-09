@@ -2,7 +2,7 @@
   <div class="TimeZoneTable">
     <TimeZoneItem
       v-for="el in countries"
-      :key="el.key"
+      :key="el.id"
       :country="el.country"
       :city="el.city"
       :timezone="el.zone"

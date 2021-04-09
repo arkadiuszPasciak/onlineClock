@@ -1,10 +1,10 @@
 <template>
   <div class="Input">
-    <label class="Input" :for="id">{{ text }}</label>
+    <label class="Input" :for="name">{{ text }}</label>
     <input
-      v-model.number="modeltest"
+      v-model.number="model"
       type="number"
-      :id="id"
+      :id="name"
       min="0"
       :max="max"
     >
@@ -16,10 +16,10 @@ import { ref } from 'vue';
 
 export default {
   name: 'Input',
-  props: ['id', 'max', 'text'],
+  props: ['name', 'max', 'text'],
   setup() {
-    const modeltest = ref(0);
-    return { modeltest };
+    const model = ref(0);
+    return { model };
   },
 };
 </script>

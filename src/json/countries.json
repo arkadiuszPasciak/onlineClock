@@ -1,48 +1,48 @@
 [
   {
-    "key": 1,
+    "id": 1,
     "zone": "Europe/London",
     "country": "UK",
     "city": "London"
   },
   {
-    "key": 2,
+    "id": 2,
     "zone": "Europe/Berlin",
     "country": "Germany",
     "city": "Berlin"
   },
   {
-    "key": 3,
+    "id": 3,
     "zone": "Europe/Moscow",
     "country": "Russia",
     "city": "Moscow"
   },
   {
-    "key": 4,
+    "id": 4,
     "zone": "Asia/Qatar",
     "country": "Qatar",
     "city": "Doha"
   },
   {
-    "key": 5,
+    "id": 5,
     "zone": "Asia/Hong_Kong",
     "country": "China",
     "city": "Hong Kong"
   },
   {
-    "key": 6,
+    "id": 6,
     "zone": "Australia/Sydney",
     "country": "Australia",
     "city": "Sydney"
   },
   {
-    "key": 7,
+    "id": 7,
     "zone": "America/Los_Angeles",
     "country": "USA",
     "city": "Los Angeles"
   },
   {
-    "key": 8,
+    "id": 8,
     "zone": "America/New_York",
     "country": "USA",
     "city": "New York"

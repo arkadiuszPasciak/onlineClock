@@ -1,19 +1,19 @@
 [
   {
-    "key": 1,
-    "id": "set_time_hours",
+    "id": 1,
+    "name": "set_time_hours",
     "max": 99,
     "text": "Hours"
   },
   {
-    "key": 2,
-    "id": "set_time_minutes",
+    "id": 2,
+    "name": "set_time_minutes",
     "max": 59,
     "text": "Minutes"
   },
   {
-    "key": 3,
-    "id": "set_time_seconds",
+    "id": 3,
+    "name": "set_time_seconds",
     "max": 59,
     "text": "Seconds"
   }

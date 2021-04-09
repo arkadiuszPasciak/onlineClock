@@ -5,11 +5,11 @@
         <div class="inputs">
           <Input
             v-for="el in inputs"
-            :key="el.key"
-            :id="el.id"
+            :key="el.id"
+            :name="el.name"
             :max="el.max"
             :text="el.text"
-            :ref="el.id"
+            :ref="el.name"
           />
         </div>
         <Button
@@ -36,9 +36,9 @@ export default {
   methods: {
     saveTime() {
       this.time = [];
-      this.time.push(this.$refs.set_time_hours.modeltest);
-      this.time.push(this.$refs.set_time_minutes.modeltest);
-      this.time.push(this.$refs.set_time_seconds.modeltest);
+      this.time.push(this.$refs.set_time_hours.model);
+      this.time.push(this.$refs.set_time_minutes.model);
+      this.time.push(this.$refs.set_time_seconds.model);
       this.emitter.emit('countdown', (this.time));
       this.show = false;
     },
@@ -80,7 +80,7 @@ export default {
   flex-basis: 100%;
   justify-content: center;
   column-gap: 15px;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 90px);
   margin: 0 0 20px;
 }
 .close-btn {

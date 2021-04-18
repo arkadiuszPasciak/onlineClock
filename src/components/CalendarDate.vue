@@ -8,6 +8,9 @@
 </template>
 
 <script>
+import getNameOfTheDay from '@/utils/getNameOfTheDay';
+import getNameOfTheMonth from '@/utils/getNameOfTheMonth';
+
 export default {
   name: 'CalendarDate',
   setup() {
@@ -16,60 +19,8 @@ export default {
     const month = date.getMonth();
     const year = date.getFullYear();
     const numberOfTheMonthDay = new Date(year, month, 0).getDate();
-    let nameOfTheDay = '';
-    let nameOfTheMonth = '';
-
-    switch (day) {
-      case 0: nameOfTheDay = 'Sunday'; break;
-      case 1: nameOfTheDay = 'Monday'; break;
-      case 2: nameOfTheDay = 'Tuesday'; break;
-      case 3: nameOfTheDay = 'Wednesday'; break;
-      case 4: nameOfTheDay = 'Thursday'; break;
-      case 5: nameOfTheDay = 'Friday'; break;
-      case 6: nameOfTheDay = 'Saturday'; break;
-      default: nameOfTheDay = 'Sunday';
-    }
-
-    switch (month) {
-      case 0:
-        nameOfTheMonth = 'January';
-        break;
-      case 1:
-        nameOfTheMonth = 'February';
-        break;
-      case 2:
-        nameOfTheMonth = 'March';
-        break;
-      case 3:
-        nameOfTheMonth = 'April';
-        break;
-      case 4:
-        nameOfTheMonth = 'May';
-        break;
-      case 5:
-        nameOfTheMonth = 'June';
-        break;
-      case 6:
-        nameOfTheMonth = 'July';
-        break;
-      case 7:
-        nameOfTheMonth = 'August';
-        break;
-      case 8:
-        nameOfTheMonth = 'September';
-        break;
-      case 9:
-        nameOfTheMonth = 'October';
-        break;
-      case 10:
-        nameOfTheMonth = 'November';
-        break;
-      case 11:
-        nameOfTheMonth = 'December';
-        break;
-      default:
-        nameOfTheDay = 'January';
-    }
+    const nameOfTheDay = getNameOfTheDay(day);
+    const nameOfTheMonth = getNameOfTheMonth(month);
 
     return {
       day,

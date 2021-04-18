@@ -20,29 +20,14 @@ export default {
     let nameOfTheMonth = '';
 
     switch (day) {
-      case 0:
-        nameOfTheDay = 'Sunday';
-        break;
-      case 1:
-        nameOfTheDay = 'Monday';
-        break;
-      case 2:
-        nameOfTheDay = 'Tuesday';
-        break;
-      case 3:
-        nameOfTheDay = 'Wednesday';
-        break;
-      case 4:
-        nameOfTheDay = 'Thursday';
-        break;
-      case 5:
-        nameOfTheDay = 'Friday';
-        break;
-      case 6:
-        nameOfTheDay = 'Saturday';
-        break;
-      default:
-        nameOfTheDay = 'Sunday';
+      case 0: nameOfTheDay = 'Sunday'; break;
+      case 1: nameOfTheDay = 'Monday'; break;
+      case 2: nameOfTheDay = 'Tuesday'; break;
+      case 3: nameOfTheDay = 'Wednesday'; break;
+      case 4: nameOfTheDay = 'Thursday'; break;
+      case 5: nameOfTheDay = 'Friday'; break;
+      case 6: nameOfTheDay = 'Saturday'; break;
+      default: nameOfTheDay = 'Sunday';
     }
 
     switch (month) {

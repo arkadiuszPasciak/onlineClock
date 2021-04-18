@@ -11,10 +11,13 @@ export default {
 
 <style lang="scss" scoped>
 .Button {
-  @include btn($btn);
-  padding: 15px 60px;
+  display: block;
   margin: 10px;
+  text-transform: uppercase;
   letter-spacing: 1px;
+  color: $cl-white;
+  cursor: pointer;
+  transition: background-color .3s ease, color .3s ease;
   @include below(medium) {
     font: 500 12px/16px $sourceSansPro;
     padding: 12px 40px;
@@ -24,34 +27,34 @@ export default {
     padding: 15px 60px;
   }
   &.start {
-    @include btn($btn-primary);
+    background: $cl-green;
     &:hover {
       @include hover(hover) {
-        @include btn($btn-primary-hover);
+        background: rgba($cl-green, .8);
       }
     }
   }
   &.stop {
-    @include btn($btn-secondary);
+    background: $cl-red;
     &:hover {
       @include hover(hover) {
-        @include btn($btn-secondary-hover);
+        background: rgba($cl-red, .8);
       }
     }
   }
   &.edit {
-    @include btn($btn-tertiary);
+    background: $cl-dark-blue;
     &:hover {
       @include hover(hover) {
-        @include btn($btn-tertiary-hover);
+        background: rgba($cl-dark-blue, .8);
       }
     }
   }
   &.reset {
-    @include btn($btn-quaternary);
+    background: $cl-orange;
     &:hover {
       @include hover(hover) {
-        @include btn($btn-quaternary-hover);
+        @background: rgba($cl-orange, .8);
       }
     }
   }

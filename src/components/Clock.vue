@@ -1,8 +1,8 @@
 <template>
   <Time
-    :hours="hours"
-    :minutes="minutes"
-    :seconds="seconds"
+    :hours="time.hours"
+    :minutes="time.minutes"
+    :seconds="time.seconds"
     :microseconds="false"
     :modifier="modifier"
   />
@@ -11,6 +11,7 @@
 <script>
 import { ref } from 'vue';
 import Time from '@/components/Time';
+import getTime from '@/utils/getTime';
 
 export default {
   name: 'Clock',
@@ -25,42 +26,13 @@ export default {
     },
   },
   setup(props) {
-    const date = new Date();
-    let hour;
+    const time = ref(getTime(props.timezone));
 
-    if (props.timezone === false) {
-      hour = date.toLocaleTimeString();
-    } else {
-      hour = date.toLocaleTimeString('en-GB', { timeZone: props.timezone });
-    }
+    setInterval(() => {
+      time.value = getTime(props.timezone);
+    }, 500);
 
-    const hours = ref(parseInt(hour.slice(0, 2), 10));
-    const minutes = ref(parseInt(hour.slice(3, 5), 10));
-    const seconds = ref(parseInt(hour.slice(6, 8), 10));
-
-    function clock() {
-      seconds.value += 1;
-
-      if (seconds.value === 60) {
-        minutes.value += 1;
-        seconds.value = 0;
-      }
-      if (minutes.value === 60) {
-        hours.value += 1;
-        minutes.value = 0;
-      }
-      if (hours.value === 24) {
-        hours.value = 0;
-      }
-    }
-
-    setInterval(clock, 1000);
-
-    return {
-      hours,
-      minutes,
-      seconds,
-    };
+    return { time };
   },
 };
 </script>

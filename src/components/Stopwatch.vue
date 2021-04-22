@@ -28,6 +28,7 @@ import { ref } from 'vue';
 import Button from '@/components/Button';
 import RoundTable from '@/components/RoundTable';
 import Time from '@/components/Time';
+import { countMicroseconds, countMinutes, countSeconds } from '@/utils/time';
 
 export default {
   name: 'Stopwatch',
@@ -40,7 +41,7 @@ export default {
     const seconds = ref(0);
     const status = ref(false);
     let intervalMicroseconds = null;
-    let intervalSeconds = null;
+    let intervalSecondsAndMinutes = null;
 
     function resetStopwatch() {
       if (minutes.value !== 0 || seconds.value !== 0) {
@@ -54,32 +55,20 @@ export default {
       }
     }
 
-    function countMicroseconds() {
-      microseconds.value += 1;
-
-      if (microseconds.value === 100) {
-        microseconds.value = 0;
-      }
-    }
-
-    function countSeconds() {
-      seconds.value += 1;
-
-      if (seconds.value === 60) {
-        minutes.value += 1;
-        seconds.value = 0;
-      }
-    }
-
     function startAndStopStopwatch() {
       if (status.value === false) {
         status.value = true;
-        intervalMicroseconds = setInterval(countMicroseconds, 10);
-        intervalSeconds = setInterval(countSeconds, 1000);
+        intervalMicroseconds = setInterval(() => {
+          microseconds.value = countMicroseconds(microseconds.value);
+        }, 10);
+        intervalSecondsAndMinutes = setInterval(() => {
+          seconds.value = countSeconds(seconds.value);
+          minutes.value = countMinutes(minutes.value, seconds.value);
+        }, 1000);
       } else if (status.value === true) {
         status.value = false;
         clearInterval(intervalMicroseconds);
-        clearInterval(intervalSeconds);
+        clearInterval(intervalSecondsAndMinutes);
       }
     }
 

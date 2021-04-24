@@ -8,8 +8,7 @@
 </template>
 
 <script>
-import getNameOfTheDay from '@/utils/getNameOfTheDay';
-import getNameOfTheMonth from '@/utils/getNameOfTheMonth';
+import { getNameOfTheDay, getNameOfTheMonth } from '@/utils/date';
 
 export default {
   name: 'CalendarDate',

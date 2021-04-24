@@ -11,7 +11,7 @@
 <script>
 import { ref } from 'vue';
 import Time from '@/components/Time';
-import getTime from '@/utils/getTime';
+import getTime from '@/utils/clock';
 
 export default {
   name: 'Clock',
